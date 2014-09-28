@@ -88,3 +88,28 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('company', function()
+{
+	if (Auth::guest())
+	{
+		return Redirect::guest('login');
+	}
+	if(!UserManager::isCompany(Auth::id()))
+	{
+		return Redirect::guest('login');
+	}
+});
+
+Route::filter('customer', function()
+{
+	if (Auth::guest())
+	{
+		return Redirect::guest('login');
+	}
+	if(!UserManager::isCustomer(Auth::id()))
+	{
+		return Redirect::guest('login');
+	}
+});

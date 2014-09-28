@@ -26,7 +26,7 @@ class UserManager {
 			Log::debug('Executing UserManager@insertUser done.');
 			return $user;
 		
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@insertUser error', array('context' => $e));
 		}
 		
@@ -47,34 +47,12 @@ class UserManager {
 	
 			Log::debug('Executing UserManager@getUserBasic success');
 			return $user;
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@getUserBasic error', array('context' => $e));
 			return NULL;
 		}
 	
 		Log::debug('Executing UserManager@getUserBasic error');
-		return NULL;
-	}
-	
-	public static function getUserCompany($id)
-	{
-		Log::debug('Executing UserManager@getUserCompany', array('id' => $id));
-		if(!isset($id))
-		{
-			return NULL;
-		}
-	
-		try {
-			$userCompany = User::find($id)->companies->first();
-	
-			Log::debug('Executing UserManager@getUserCompany success');
-			return $userCompany;
-		} catch(TetraspectException $e){
-			Log::error('Executing UserManager@getUserCompany error', array('context' => $e));
-			return NULL;
-		}
-	
-		Log::debug('Executing UserManager@getUserCompany error');
 		return NULL;
 	}
 	
@@ -91,7 +69,7 @@ class UserManager {
 	
 			Log::debug('Executing UserManager@getUserBasicByEmail success');
 			return $user;
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@getUserBasicByEmail error', array('context' => $e));
 			return NULL;
 		}
@@ -145,7 +123,7 @@ class UserManager {
 				
 				Log::debug('Executing UserManager@assignRole success');
 				return true;
-			} catch(TetraspectException $e){
+			} catch(Exception $e){
 				Log::error('Executing UserManager@assignRole error', array('context' => $e));
 				return false;
 			}
@@ -153,40 +131,6 @@ class UserManager {
 		
 		Log::debug('Executing UserManager@assignRole error');
 		return false;
-	}
-	
-	public static function getTetriarchUser($companyId)
-	{
-		Log::debug('Executing UserManager@getTetriarchUser', array('companyId' => $companyId));
-		if(!isset($companyId))
-		{
-			return NULL;
-		}
-	
-		try {
-			$company = Company::find($companyId);
-			if($company)
-			{
-				$user = User::whereHas('roles', function($q)
-				{
-					$q->where('name', Roles::TETRIARCH);
-						
-				})
-				->whereHas('companies', function($q) use ($company)
-				{
-					$q->where('id', $company->id);
-						
-				})->first();
-				
-				return $user;
-			}
-		} catch(TetraspectException $e){
-			Log::error('Executing UserManager@getTetriarchUser error', array('context' => $e));
-			return NULL;
-		}
-	
-		Log::debug('Executing UserManager@getTetriarchUser error');
-		return NULL;
 	}
 	
 	public static function isUserInRole($userId, $role)
@@ -210,7 +154,7 @@ class UserManager {
 			} else {
 				return false;
 			}
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@isUserInRole error', array('context' => $e));
 			return NULL;
 		}
@@ -237,89 +181,8 @@ class UserManager {
 			} else {
 				return false;
 			}
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@hasAnyRole error', array('context' => $e));
-			return NULL;
-		}
-	}
-	
-	public static function isAdmin($userId)
-	{
-		Log::debug('Executing UserManager@isAdmin', array('userId' => $userId));
-		if(!isset($userId))
-		{
-			return NULL;
-		}
-	
-		try {
-			$user = User::whereHas('roles', function($q)
-			{
-				$q->where('admin', TRUE);
-					
-			})->find($userId);
-				
-			if(isset($user))
-			{
-				return true;
-			} else {
-				return false;
-			}
-		} catch(TetraspectException $e){
-			Log::error('Executing UserManager@isAdmin error', array('context' => $e));
-			return NULL;
-		}
-	}
-	
-	public static function isUser($userId)
-	{
-		Log::debug('Executing UserManager@isAdmin', array('userId' => $userId));
-		if(!isset($userId))
-		{
-			return NULL;
-		}
-	
-		try {
-			$user = User::whereHas('roles', function($q)
-			{
-				$q->where('admin', FALSE);
-					
-			})->find($userId);
-	
-			if(isset($user))
-			{
-				return true;
-			} else {
-				return false;
-			}
-		} catch(TetraspectException $e){
-			Log::error('Executing UserManager@isAdmin error', array('context' => $e));
-			return NULL;
-		}
-	}
-	
-	public static function isMemberOfCompany($companyId, $userId)
-	{
-		Log::debug('Executing UserManager@isMemberOfCompany', array('companyId' => $companyId, 'userId' => $userId));
-		if(!isset($companyId) || !isset($userId))
-		{
-			return NULL;
-		}
-	
-		try {
-			$user = User::whereHas('companies', function($q) use($companyId)
-			{
-				$q->where('id', $companyId);
-					
-			})->find($userId);
-	
-			if(isset($user))
-			{
-				return true;
-			} else {
-				return false;
-			}
-		} catch(TetraspectException $e){
-			Log::error('Executing UserManager@isMemberOfCompany error', array('context' => $e));
 			return NULL;
 		}
 	}
@@ -338,7 +201,7 @@ class UserManager {
 				return User::count();
 			}
 	
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@getAllUsersCount error', array('context' => $e));
 		}
 	
@@ -365,7 +228,7 @@ class UserManager {
 					return true;
 				}
 			}
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@activateUser error', array('context' => $e));
 			return false;
 		}
@@ -395,12 +258,66 @@ class UserManager {
 			{
 				return $user->errors();	
 			}
-		} catch(TetraspectException $e){
+		} catch(Exception $e){
 			Log::error('Executing UserManager@getUserBasic error', array('context' => $e));
 			return false;
 		}
 	
 		Log::debug('Executing UserManager@getUserBasic error');
 		return false;
+	}
+
+	public static function isCompany($userId)
+	{
+		Log::debug('Executing UserManager@isAdmin', array('userId' => $userId));
+		if(!isset($userId))
+		{
+			return NULL;
+		}
+	
+		try {
+			$user = User::whereHas('roles', function($q)
+			{
+				$q->where('name', Roles::COMPANY);
+					
+			})->find($userId);
+			Log::debug('Executing UserManager@isAdmin', array('user' => $user != NULL ? $user->id : 'nije comapny'));
+			if(isset($user))
+			{
+				return true;
+			} else {
+				return false;
+			}
+		} catch(Exception $e){
+			Log::error('Executing UserManager@isAdmin error', array('context' => $e));
+			return NULL;
+		}
+	}
+
+	public static function isCustomer($userId)
+	{
+		Log::debug('Executing UserManager@isAdmin', array('userId' => $userId));
+		if(!isset($userId))
+		{
+			return NULL;
+		}
+	
+		try {
+			$user = User::whereHas('roles', function($q)
+			{
+				$q->where('name', Roles::CUSTOMER);
+					
+			})->find($userId);
+			Log::debug('Executing UserManager@isAdmin', array('user' => $user != NULL ? $user->id : 'nije comapny'));
+			if(isset($user))
+			{
+				return true;
+			} else {
+				return false;
+			}
+		} catch(Exception $e){
+			Log::error('Executing UserManager@isAdmin error', array('context' => $e));
+			return NULL;
+		}
 	}
 }
