@@ -45,9 +45,9 @@
     			</div>
           <div class="inner">
             <ul id="sub-navigation" class="nav nav-tabs nav-justified" role="tablist">
-              <li class="active"><a href="#">Posalji kod</a></li>
-              <li><a href="#">Kodovi</a></li>
-              <li><a href="#">Katalog poklona</a></li>
+              <li class="active"><a href="{{URL::to('/company/home')}}">Posalji kod</a></li>
+              <li><a href="{{URL::to('/company/codes')}}">Kodovi</a></li>
+              <li><a href="{{URL::to('/company/gifts')}}">Katalog poklona</a></li>
             </ul>
           </div>
     		</div>
