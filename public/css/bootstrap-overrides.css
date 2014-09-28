@@ -1,0 +1,8 @@
+.panel.panel-custom{
+	background-color: transparent;
+	border: 1px solid white;
+}
+
+.panel.panel-custom .panel-heading{
+	border-bottom: 1px solid white;
+}

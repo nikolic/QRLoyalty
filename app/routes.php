@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/for-customers', 'HomeController@customers');
+Route::get('/for-companies', 'HomeController@companies');
+
+Route::get('/login', 'LoginController@index');
