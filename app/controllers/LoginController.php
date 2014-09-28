@@ -1,5 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class LoginController extends BaseController {
 
@@ -36,10 +39,20 @@ class LoginController extends BaseController {
 	public function logout()
 	{
 		//Log::debug('Executing LoginController@logout', array('user' => Auth::user()->email));
-		
 		Auth::logout();
 		Session::flush();
 		Log::debug('Executing LoginController@logout - user logged out');
 		return Redirect::to('/');
+	}
+
+	public function registration()
+	{
+		$user = UserManager::insertUser();
+		if($user)
+		{
+			$added = UserManager::assignRole($user->id, Input::get('role'));
+			return Response::json(array('success' => $added));
+		}
+		return Response::json(array('success' => false));
 	}
 }

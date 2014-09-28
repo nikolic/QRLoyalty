@@ -5,16 +5,14 @@ use Illuminate\Support\Facades\Input;
 
 class UserManager {
 	
-	public static function insertUser($active = FALSE)
+	public static function insertUser($active = TRUE)
 	{
 		Log::debug('Executing UserManager@insertUser');
 		try {
 
 			$user = array(
-				'first_name' => Input::get('firstName'),
-				'last_name' => Input::get('lastName'),
-				'position' => Input::get('position', NULL),
-				'phone' => Input::get('phone'),
+				'full_name' => Input::get('role') == Roles::CUSTOMER ? Input::get('fullName') : NULL,
+				'company_name' => Input::get('role') == Roles::COMPANY ? Input::get('companyName') : NULL,
 				'email' => Input::get('email'),
 				'password' => Input::get('password'),
 				'passwordConfirmation' => Input::get('passwordConfirmation'),

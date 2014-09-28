@@ -11,6 +11,7 @@ abstract class Routes extends BasicEnum {
 	const LOGIN = 'LOGIN';
 	const DO_LOGIN = 'DO_LOGIN';
 	const LOGOUT = 'LOGOUT';
+	const REGISTRATION = 'REGISTRATION';
 	/*
 	 * Company routes
 	*/

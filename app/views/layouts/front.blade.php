@@ -12,6 +12,14 @@
     {{ HTML::style('css/bootstrap.min.css') }}
     {{ HTML::style('css/cover.css') }}
     {{ HTML::style('css/bootstrap-overrides.css') }}
+    {{ HTML::script('js/libs/jquery.min.js') }}
+    {{ HTML::script('js/libs/bootstrap.min.js') }}
+    {{ HTML::script('js/libs/knockout-3.1.0.js') }}
+    {{ HTML::script('js/libs/knockout.mapping-latest.js') }}
+    {{ HTML::script('js/libs/knockout.validation.js') }}
+    {{ HTML::script('js/libs/knockout.custom.validators.js') }}
+    {{ HTML::script('js/libs/Localization/sr-SR.js') }}
+    
   </head>
   <body>
     <div class="site-wrapper">
@@ -36,10 +44,5 @@
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {{ HTML::script('js/libs/jquery.min.js') }}
-    {{ HTML::script('js/libs/bootstrap.min.js') }}
   </body>
 </html>

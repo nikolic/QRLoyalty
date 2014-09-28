@@ -11,26 +11,26 @@
 					<form class="form-horizontal" role="form">
 					  <div class="form-group">
 					    <div class="col-sm-12">
-					      <input type="text" class="form-control" placeholder="Unesite ime i prezime">
+					      <input type="text" class="form-control" placeholder="Unesite ime i prezime" data-bind="value: fullName">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-12">
-					      <input type="email" class="form-control" placeholder="Unesite email adresu">
+					      <input type="email" class="form-control" placeholder="Unesite email adresu" data-bind="value: email">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-12">
-					      <input type="password" class="form-control" placeholder="Unesi sifru">
+					      <input type="password" class="form-control" placeholder="Unesi sifru" data-bind="value: password">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-12">
-					      <input type="password" class="form-control" placeholder="Ponovi sifru">
+					      <input type="password" class="form-control" id="passwordField" placeholder="Ponovi sifru" data-bind="value: passwordConfirmation">
 					    </div>
 					  </div>
-
-					  <button type="submit" class="btn btn-lg btn-primary btn-block">Create User</button>
+				      <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Please wait...</div>
+					  <button type="submit" class="btn btn-lg btn-primary btn-block" data-bind="click: save, visible: ajaxInProgress() == false, enable: canSave">Create User</button>
 					</form>
 				</div>
 			</div>
@@ -45,5 +45,9 @@
 				</div>
 			</div>
 	    </div>
-	</div>	
+	</div>
+	<script> var SERVER_PATH_LOGIN = "{{URL::route(Routes::LOGIN)}}";</script>
+	<script> var SERVER_VALUE_ROLE = "{{Roles::CUSTOMER}}";</script>	
+	<script> var SERVER_PATH_REGISTRATION = "{{URL::route(Routes::REGISTRATION)}}";</script>
+	{{ HTML::script('js/pages/front/registration.js') }}
 @stop

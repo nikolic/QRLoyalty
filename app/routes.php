@@ -30,6 +30,7 @@ Route::get('/for-companies', array('as' => Routes::FOR_COMPANIES, 'uses' => 'Hom
 Route::get('/login', array('as' => Routes::LOGIN, 'uses' => 'LoginController@index'));
 Route::post('/do-login', array('as' => Routes::DO_LOGIN, 'uses' => 'LoginController@login'));
 Route::get('/logout', array('as' => Routes::LOGOUT, 'uses' => 'LoginController@logout'));
+Route::post('/registration', array('as' => Routes::REGISTRATION, 'uses' => 'LoginController@registration'));
 /* Company routes */
 Route::get('/company/home', array('as' => Routes::COMPANY_HOME, 'uses' => 'CompanyController@index'));
 Route::get('/company/codes', array('as' => Routes::COMPANY_CODES, 'uses' => 'CompanyController@codes'));

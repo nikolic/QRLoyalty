@@ -39,3 +39,16 @@
 .error-msg{
 	color:red;
 }
+
+.loading-wrap{
+	width: 100%;
+	color: #357ebd;
+	font-weight: bold;
+}
+
+.loading-wrap IMG{
+	border-radius: 19px;
+	border: 2px solid #357ebd;
+	width: 36px;
+	height: 36px;
+}
