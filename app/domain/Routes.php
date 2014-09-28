@@ -22,5 +22,7 @@ abstract class Routes extends BasicEnum {
 	 * Customer routes
 	*/
 	const CUSTOMER_HOME = 'CUSTOMER_HOME';
+	const CUSTOMER_CATALOGUE = 'CUSTOMER_CATALOGUE';
+	const CUSTOMER_ACCOUNT = 'CUSTOMER_ACCOUNT';
 
 }

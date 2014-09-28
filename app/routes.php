@@ -36,6 +36,7 @@ Route::get('/company/codes', array('as' => Routes::COMPANY_CODES, 'uses' => 'Com
 Route::get('/company/gifts', array('as' => Routes::COMPANY_GIFTS, 'uses' => 'CompanyController@gifts'));
 /* Customer routes */
 Route::get('/customer/home', array('as' => Routes::CUSTOMER_HOME, 'uses' => 'CustomerController@index'));
-
+Route::get('/customer/catalogue', array('as' => Routes::CUSTOMER_CATALOGUE, 'uses' => 'CustomerController@catalogue'));
+Route::get('/customer/account', array('as' => Routes::CUSTOMER_ACCOUNT, 'uses' => 'CustomerController@account'));
 
 
