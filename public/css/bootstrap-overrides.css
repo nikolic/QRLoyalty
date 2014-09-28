@@ -6,3 +6,34 @@
 .panel.panel-custom .panel-heading{
 	border-bottom: 1px solid white;
 }
+
+#sub-navigation li.active A{
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+}
+
+#codes .list-group-item {
+	background-color: transparent;
+	color: white;
+}
+
+
+#codes .list-group-item .list-group-item-image {
+	float:left;
+	border-radius: 1px solid white;
+	height: 64px;
+	width: 64px;
+	margin-right: 10px;
+}
+
+#codes .list-group-item .list-group-item-image .glyphicon.glyphicon-gift{
+	font-size:53px;
+}
+
+
+#codes .list-group-item .list-group-item-heading{
+	color: #fff;
+}
+
+

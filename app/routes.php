@@ -16,3 +16,11 @@ Route::get('/for-customers', 'HomeController@customers');
 Route::get('/for-companies', 'HomeController@companies');
 
 Route::get('/login', 'LoginController@index');
+
+/* Company routes */
+
+Route::get('/company/home', 'CompanyController@index');
+Route::get('/company/codes', 'CompanyController@codes');
+Route::get('/company/gifts', 'CompanyController@gifts');
+
+
