@@ -96,3 +96,15 @@
 	color: #51AFFF;
 	border-color: #51AFFF;
 }
+
+.number-of-codes{
+	color: #51AFFF;
+	font-weight: bold;
+	padding: 5px;
+	border: 2px solid #51AFFF;
+	border-radius: 25px;
+}
+
+.margin-bottom{
+	margin-bottom: 10px;
+}
