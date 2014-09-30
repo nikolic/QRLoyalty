@@ -53,4 +53,20 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 		return $this->belongsToMany('Role', 'user_roles')->withTimestamps();
 	}
 
+	/*
+	 * Relationship with Users 
+	 */
+	public function companyCodes()
+	{
+    	return $this->hasMany('LoyaltyCode', 'company_id');
+  	}
+
+	/*
+	 * Relationship with Users 
+	 */
+  	public function userCodes()
+  	{
+    	return $this->hasMany('LoyaltyCode', 'user_id');
+  	}
+
 }
