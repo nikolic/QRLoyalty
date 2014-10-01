@@ -8,7 +8,7 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		//$success = QRManager::insertCodeInDB();
+		//$success = QRManager::generateCode();
 
 		//$user = User::find(4);
 		//Log::debug('codes------', array('tet->',$user->userCodes->toArray()));
