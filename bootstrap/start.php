@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('homestead', 'nikolic', 'vmi24753.contabo.net'),
+	'local' => array('homestead', 'nikolic', 'vmi24753.contabo.net', 'nikolic-VirtualBox'),
 
 ));
 
