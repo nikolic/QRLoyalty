@@ -26,12 +26,11 @@ class QRManager {
 			return FALSE;
 		}
 
-		$basePath = Config::get('qrloyalty.codes_path');
-		$fileLocation = $basePath . $loyaltyCode->id . '.png';
+		$fileLocation = QRManager::_generatePath($loyaltyCode->id);
 
-		QrCode::format('png')->size(150)->color(81,175,255)->backgroundColor(51,51,51)->generate( $loyaltyCode->secret, $fileLocation);
+		QrCode::format('png')->size(150)->color(81,175,255)->backgroundColor(51,51,51)->generate($loyaltyCode->secret, $fileLocation);
 
-		QRManager::sendEmailNotificationWithLoyaltyCode($user, $loyaltyCode, $fileLocation);
+		QRManager::sendEmailNotificationWithLoyaltyCode($user, $loyaltyCode);
 
 		return TRUE;
 	}
@@ -55,15 +54,16 @@ class QRManager {
 		return ($loyaltyCode != null && $loyaltyCode->id > 0) ? $loyaltyCode : NULL;
 	}
 
-	public static function sendEmailNotificationWithLoyaltyCode($user, $loyaltyCode, $loyaltyCodeImgPath)
+	public static function sendEmailNotificationWithLoyaltyCode($user, $loyaltyCode)
 	{
-		Log::debug('QRManager@sendEmailNotificationWithLoyaltyCode -> Sending email to users with params: ', array('email' => $user->email, 'loyaltyCode' => $loyaltyCodeImgPath));
+		Log::debug('QRManager@sendEmailNotificationWithLoyaltyCode -> Sending email to users with params: ', array('email' => $user->email));
 		try {
+			$loyaltyCodeImgPath = QRManager::_generatePath($loyaltyCode->id);
 			$companyUser = UserManager::getUserBasic(Auth::id());
 			$companyName = $companyUser != NULL && $companyUser->company_name != NULL ? $companyUser->company_name . " - " : "";
 			$email = new Email;
 			$email->to = $user->email;
-			$email->cc = 'nikolic89@hotmail.com';
+			//$email->cc = 'nikolic89@hotmail.com';
 			$email->subject =  $companyName .'New loyalty code';
 			$email->view = "emails.newcode";
 			$email->data = array();
@@ -86,5 +86,11 @@ class QRManager {
 		Log::debug('QRManager@sendEmailNotificationWithLoyaltyCode -- error !!!!', array('email' => $user->email, 'loyaltyCode' => $loyaltyCode));
 
 		return FALSE;
+	}
+
+	public static function _generatePath($codeId){
+		$basePath = Config::get('qrloyalty.codes_path');
+
+		return $basePath . $codeId . '.png';
 	}
 }

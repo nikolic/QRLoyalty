@@ -18,7 +18,8 @@
 			"app/tests/TestCase.php",
 			"app/managers",
 			"app/domain",
-			"app/mailers"
+			"app/mailers",
+			"app/helpers"
 		]
 	},
 	"scripts": {

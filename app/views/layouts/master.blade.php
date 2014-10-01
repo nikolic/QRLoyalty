@@ -35,9 +35,9 @@
             </div>
             <div class="inner">
               <ul id="sub-navigation" class="nav nav-tabs nav-justified" role="tablist">
-                <li class="active"><a href="{{URL::route(Routes::COMPANY_HOME)}}">Posalji kod</a></li>
-                <li><a href="{{URL::route(Routes::COMPANY_CODES)}}">Kodovi</a></li>
-                <li><a href="{{URL::route(Routes::COMPANY_GIFTS)}}">Katalog poklona</a></li>
+                <li class="{{HtmlHelper::setActive(Routes::COMPANY_HOME)}}"><a href="{{URL::route(Routes::COMPANY_HOME)}}">Posalji kod</a></li>
+                <li class="{{HtmlHelper::setActive(Routes::COMPANY_CODES)}}"><a href="{{URL::route(Routes::COMPANY_CODES)}}">Kodovi</a></li>
+                <li class="{{HtmlHelper::setActive(Routes::COMPANY_GIFTS)}}"><a href="{{URL::route(Routes::COMPANY_GIFTS)}}">Katalog poklona</a></li>
               </ul>
             </div>  
             @else
@@ -50,9 +50,9 @@
               </div>
               <div class="inner">
                 <ul id="sub-navigation" class="nav nav-tabs nav-justified" role="tablist">
-                  <li class="active"><a href="{{URL::route(Routes::CUSTOMER_HOME)}}">Vasi kodovi (17)</a></li>
-                  <li><a href="{{URL::route(Routes::CUSTOMER_CATALOGUE)}}">Katalog</a></li>
-                  <li><a href="{{URL::route(Routes::CUSTOMER_ACCOUNT)}}">Moj nalog</a></li>
+                  <li class="{{HtmlHelper::setActive(Routes::CUSTOMER_HOME)}}"><a href="{{URL::route(Routes::CUSTOMER_HOME)}}">Vasi kodovi (17)</a></li>
+                  <li class="{{HtmlHelper::setActive(Routes::CUSTOMER_CATALOGUE)}}"><a href="{{URL::route(Routes::CUSTOMER_CATALOGUE)}}">Katalog</a></li>
+                  <li class="{{HtmlHelper::setActive(Routes::CUSTOMER_ACCOUNT)}}"><a href="{{URL::route(Routes::CUSTOMER_ACCOUNT)}}">Moj nalog</a></li>
                 </ul>
               </div>  
             @endif

@@ -29,9 +29,9 @@
       			<div class="inner">
       			  <h3 class="masthead-brand"><a href="{{URL::to('/')}}">QRLoyalty</a></h3>
       			  <ul class="nav masthead-nav">
-      			    <li ><a href="{{URL::to('/login')}}">Sign in</a></li>
-      			    <li><a href="{{URL::to('/for-customers')}}">For customers</a></li>
-      			    <li><a href="{{URL::to('/for-companies')}}">For companies</a></li>
+      			    <li class="{{HtmlHelper::setActive(Routes::LOGIN, 'active-link-homepage')}}"><a href="{{URL::route(Routes::LOGIN)}}">Sign in</a></li>
+      			    <li class="{{HtmlHelper::setActive(Routes::FOR_CUSTOMERS, 'active-link-homepage')}}"><a href="{{URL::route(Routes::FOR_CUSTOMERS)}}">For customers</a></li>
+      			    <li class="{{HtmlHelper::setActive(Routes::FOR_COMPANIES, 'active-link-homepage')}}"><a href="{{URL::route(Routes::FOR_COMPANIES)}}">For companies</a></li>
       			  </ul>
       			</div>
       		</div>
