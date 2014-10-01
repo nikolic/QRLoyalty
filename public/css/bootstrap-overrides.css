@@ -108,3 +108,7 @@
 .margin-bottom{
 	margin-bottom: 10px;
 }
+
+.validationMessage{
+	color:red;
+}

@@ -18,12 +18,15 @@ abstract class Routes extends BasicEnum {
 	const COMPANY_HOME = 'COMPANY_HOME';
 	const COMPANY_CODES = 'COMPANY_CODES';
 	const COMPANY_GIFTS = 'COMPANY_GIFTS';
-
 	/*
 	 * Customer routes
 	*/
 	const CUSTOMER_HOME = 'CUSTOMER_HOME';
 	const CUSTOMER_CATALOGUE = 'CUSTOMER_CATALOGUE';
 	const CUSTOMER_ACCOUNT = 'CUSTOMER_ACCOUNT';
+	/*
+	 * LoyaltyCode routes
+	*/
+	const LOYALTY_CODE_CREATE = 'LOYALTY_CODE_CREATE';	
 
 }

@@ -8,7 +8,7 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		//$success = QRManager::generateCode();
+		//$success = QRManager::sendEmailNotificationWithLoyaltyCode('nikolic89@hotmail.com', 'Secret CODE 123');
 
 		//$user = User::find(4);
 		//Log::debug('codes------', array('tet->',$user->userCodes->toArray()));

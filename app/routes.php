@@ -31,11 +31,16 @@ Route::get('/login', array('as' => Routes::LOGIN, 'uses' => 'LoginController@ind
 Route::post('/do-login', array('as' => Routes::DO_LOGIN, 'uses' => 'LoginController@login'));
 Route::get('/logout', array('as' => Routes::LOGOUT, 'uses' => 'LoginController@logout'));
 Route::post('/registration', array('as' => Routes::REGISTRATION, 'uses' => 'LoginController@registration'));
-/* Company routes */
+/*
+ * Company routes
+*/
 Route::get('/company/home', array('as' => Routes::COMPANY_HOME, 'uses' => 'CompanyController@index'));
 Route::get('/company/codes', array('as' => Routes::COMPANY_CODES, 'uses' => 'CompanyController@codes'));
 Route::get('/company/gifts', array('as' => Routes::COMPANY_GIFTS, 'uses' => 'CompanyController@gifts'));
-/* Customer routes */
+Route::post('/company/loyaltycode/create', array('as' => Routes::LOYALTY_CODE_CREATE, 'uses' => 'LoyaltyCodeController@create'));
+/*
+ * Customer routes
+*/
 Route::get('/customer/home', array('as' => Routes::CUSTOMER_HOME, 'uses' => 'CustomerController@index'));
 Route::get('/customer/catalogue', array('as' => Routes::CUSTOMER_CATALOGUE, 'uses' => 'CustomerController@catalogue'));
 Route::get('/customer/account', array('as' => Routes::CUSTOMER_ACCOUNT, 'uses' => 'CustomerController@account'));
