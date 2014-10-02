@@ -117,3 +117,14 @@
 	background-color: transparent;
 	border-bottom: 2px solid #51AFFF;
 }
+
+.qrl-scroller-panel{
+	height:295px;
+	max-height:295px;
+}
+
+.active-filter{
+	color: #fff;
+	background-color: #31b0d5;
+	border-color: #269abc;
+}

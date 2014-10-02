@@ -9,11 +9,12 @@
     <link rel="icon" href="../../favicon.ico">
     <title>QRLoyalty</title>
     {{ HTML::style('css/bootstrap.min.css') }}
+    {{ HTML::style('css/jquery.mCustomScrollbar.css') }}
     {{ HTML::style('css/cover.css') }}
     {{ HTML::style('css/bootstrap-overrides.css') }}
-    
     {{ HTML::script('js/libs/jquery.min.js') }}
     {{ HTML::script('js/libs/bootstrap.min.js') }}
+    {{ HTML::script('js/libs/jquery.mCustomScrollbar.concat.min.js') }}
     {{ HTML::script('js/libs/knockout-3.1.0.js') }}
     {{ HTML::script('js/libs/knockout.mapping-latest.js') }}
     {{ HTML::script('js/libs/knockout.validation.js') }}
