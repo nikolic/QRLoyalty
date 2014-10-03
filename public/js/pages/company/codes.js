@@ -9,20 +9,27 @@ var LoyaltyCode = function(id, status, name, email, created){
 	this.ownerEmail = email;
 	this.created = created;
 	this.ownerDetails = function(){
-		return this.ownerName + '(' + this.ownerEmail + ')';
+		return this.ownerName + ' (' + this.ownerEmail + ')';
 	}
 	this.codeImgPath = function(){
 		return SERVER_PATH_CODES + '/' + this.id + '.png';
 	}
 }
 
-//TEST DATA 
-var l1 = new LoyaltyCode(1, true, "Marko Nikolic", "nikolic89@hotmail.com", "21.1.2014");
-var l2 = new LoyaltyCode(2, false, "Milan Nikolic", "nikolic89@hotmail.com", "3.2.2014");
-var l3 = new LoyaltyCode(3, true, "Jovan Nikolic", "branko89@hotmail.com", "1.2.2014");
-var l4 = new LoyaltyCode(4, false, "Milentije Nikolic", "nikolic89@hotmail.com", "21.2.2014");
-var l5 = new LoyaltyCode(5, true, "Branko Nikolic", "nikolic89@hotmail.com", "12.2.2014");
-var l6 = new LoyaltyCode(6, true, "Darko Nikolic", "nikolic89@hotmail.com", "4.2.2014");
+var MappingHelper = function(){
+	var self = this;
+
+	self.mapRawData = function(loyaltyCodesRaw) {
+		var loyaltyCodes = [];
+		var tmpCode = null;
+		for(var i = 0; i < loyaltyCodesRaw.length; i++){
+			tmpCode = loyaltyCodesRaw[i];
+			loyaltyCodes.push(new LoyaltyCode(tmpCode.id, tmpCode.used == 0, tmpCode.user.full_name, tmpCode.user.email, tmpCode.created_at));
+		}
+
+		return loyaltyCodes;
+	}
+}
 
 var FILTERS = [{ key: "Svi kodovi", value: null }, { key: "Aktivni kodovi", value: true }, { key: "Iskorišćeni kodovi", value: false }];
 
@@ -53,6 +60,5 @@ var CodesViewModel = function(codesArray, filtersArray){
 	}
 };
 
-var codesViewModel = new CodesViewModel([l1,l2,l3,l4,l5,l6], FILTERS);
-
+var codesViewModel = new CodesViewModel(new MappingHelper().mapRawData(SERVER_VALUE_LOYALTY_CODES_JSON), FILTERS);
 ko.applyBindings(codesViewModel);

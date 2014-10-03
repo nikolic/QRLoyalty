@@ -6,9 +6,6 @@
 	      <div class="panel-heading">
 			<div class="btn-group btn-group-justified" data-bind="foreach: filters">
 			 	<a class="btn btn-info" role="button" data-bind="text: key, click: $root.filterByStatus, css: { 'active-filter': value == $root.selectedFilter().value }">Svi kodovi</a>
-<!-- 			      <a class="btn btn-info" role="button">Svi kodovi</a>
-			      <a class="btn btn-default" role="button">Aktivni kodovi</a>
-			      <a class="btn btn-default" role="button">Iskorišćeni kodovi</a> -->
 			</div>
 	      </div>
 			<div class="panel-body qrl-scroller-panel">
@@ -27,5 +24,6 @@
 		</div>
 	</div>
 	 <script> var SERVER_PATH_CODES = "{{URL::to('/codes/')}}"; </script>
+	 <script> var SERVER_VALUE_LOYALTY_CODES_JSON = $.parseJSON('{{$codes}}'); </script>
 	 {{ HTML::script('js/pages/company/codes.js') }}
 @stop

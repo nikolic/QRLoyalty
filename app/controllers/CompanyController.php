@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Redirect;
+
 class CompanyController extends BaseController {
 
 	protected $layout = 'layouts.master';
@@ -11,7 +16,9 @@ class CompanyController extends BaseController {
 
 	public function codes()
 	{
-		return View::make('company.codes');
+		$codes = QRManager::getAllLoyaltyCodesForCompany();
+
+		return View::make('company.codes', array('codes' => json_encode($codes->toArray())));
 	}
 
 	public function gifts()

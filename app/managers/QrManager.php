@@ -88,6 +88,12 @@ class QRManager {
 		return FALSE;
 	}
 
+	public static function getAllLoyaltyCodesForCompany(){
+		$loyaltyCodes = LoyaltyCode::where('company_id', Auth::id())->with('user')->get();
+
+		return $loyaltyCodes;
+	}
+
 	public static function _generatePath($codeId){
 		$basePath = Config::get('qrloyalty.codes_path');
 
