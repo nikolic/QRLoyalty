@@ -17,7 +17,9 @@ class QRManager {
 		if($user == NULL){
 			//TODOS create user account first and then send code to him.
 			Log::debug('Executing QRManager@generateCode - ERROR -> cannot find user with this email address:', array('email'=> Input::get('email')));
-			return FALSE;
+			$user = UserManager::createCustomerWithDefaultCredentials();
+			if($user == NULL)
+				return FALSE;
 		}
 		
 		$loyaltyCode = QRManager::insertCodeInDB($user->id);

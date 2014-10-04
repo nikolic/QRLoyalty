@@ -20,6 +20,10 @@ class UserManager {
 			);
 			
 			$user = User::create($user);
+			if($user == NULL){
+				return false;
+			}
+			$notificationSent = UserManager::sendEmailToNewUser($user, FALSE);
 			
 			Log::debug('Executing UserManager@insertUser done.');
 			return $user;
@@ -29,6 +33,37 @@ class UserManager {
 		}
 		
 		Log::debug('Executing UserManager@insertUser error');
+		return false;
+	}
+
+	public static function createCustomerWithDefaultCredentials($active = TRUE)
+	{
+		Log::debug('Executing UserManager@insertUser');
+		try {
+
+			$user = array(
+				'full_name' => Input::get('fullName') != "" && Input::get('fullName') != NULL ? Input::get('fullName') : NULL,
+				'company_name' => NULL,
+				'email' => Input::get('email'),
+				'password' => 123456,
+				'passwordConfirmation' => 123456,
+				'active' => $active
+			);
+			
+			$user = User::create($user);
+			
+			$added = UserManager::assignRole($user->id, Roles::CUSTOMER);
+
+			$notificationSent = UserManager::sendEmailToNewUser($user, TRUE);
+
+			Log::debug('Executing UserManager@createCustomerWithDefaultCredentials done.');
+			return $user;
+		
+		} catch(Exception $e){
+			Log::error('Executing UserManager@createCustomerWithDefaultCredentials error', array('context' => $e));
+		}
+		
+		Log::debug('Executing UserManager@createCustomerWithDefaultCredentials error');
 		return false;
 	}
 	
@@ -318,4 +353,33 @@ class UserManager {
 			return NULL;
 		}
 	}
+
+	public static function sendEmailToNewUser($user, $autoCreatedUser = FALSE)
+	{
+		Log::debug('Executing QRManager@sendEmailToNewUser', array('email' => $user->email));
+		try {
+			$email = new Email;
+			$email->to = $user->email;
+			//$email->cc = 'nikolic89@hotmail.com';
+			$email->subject = 'Novi QRLoyalty nalog';
+			$email->view = 'emails.newuser';
+			$email->data = array('user' => $user, 'autoCreatedUser' => $autoCreatedUser);
+			$mailer = App::make('QRLMailer');
+			$result = $mailer->send($email);
+			
+			if($result)
+			{
+				Log::debug('Executing QRManager@sendEmailToNewUser -> success' );
+				return TRUE;
+			}
+
+		} catch(Exception $e){
+			Log::error('Executing QRManager@sendEmailToNewUser error', array('context' => $e));
+		}
+		
+		Log::debug('QRManager@sendEmailToNewUser -- error !!!!', array('email' => $user->email));
+
+		return FALSE;
+	}
+
 }
