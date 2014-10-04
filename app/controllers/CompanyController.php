@@ -23,7 +23,9 @@ class CompanyController extends BaseController {
 
 	public function gifts()
 	{
-		return View::make('company.gifts');
+		$gifts = GiftManager::getAllCompanyGifts();
+
+		return View::make('company.gifts', array('gifts' => json_encode($gifts->toArray())));
 	}
 
 }

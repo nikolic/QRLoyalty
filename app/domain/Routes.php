@@ -28,5 +28,9 @@ abstract class Routes extends BasicEnum {
 	 * LoyaltyCode routes
 	*/
 	const LOYALTY_CODE_CREATE = 'LOYALTY_CODE_CREATE';	
+	/*
+	 * Gift routes
+	*/
+	const GIFT_CREATE = 'GIFT_CREATE';	
 
 }

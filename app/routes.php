@@ -38,6 +38,7 @@ Route::get('/company/home', array('as' => Routes::COMPANY_HOME, 'uses' => 'Compa
 Route::get('/company/codes', array('as' => Routes::COMPANY_CODES, 'uses' => 'CompanyController@codes'));
 Route::get('/company/gifts', array('as' => Routes::COMPANY_GIFTS, 'uses' => 'CompanyController@gifts'));
 Route::post('/company/loyaltycode/create', array('as' => Routes::LOYALTY_CODE_CREATE, 'uses' => 'LoyaltyCodeController@create'));
+Route::post('/company/gift/create', array('as' => Routes::GIFT_CREATE, 'uses' => 'GiftController@create'));
 /*
  * Customer routes
 */
