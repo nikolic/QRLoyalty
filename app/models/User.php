@@ -69,4 +69,12 @@ class User extends Ardent implements UserInterface, RemindableInterface {
     	return $this->hasMany('LoyaltyCode', 'user_id');
   	}
 
+  	/*
+	 * Relationship with Gifts
+	 */
+  	public function companyGifts()
+  	{
+    	return $this->hasMany('Gift', 'company_id');
+  	}
+
 }
