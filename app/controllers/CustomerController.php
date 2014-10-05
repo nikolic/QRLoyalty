@@ -16,7 +16,12 @@ class CustomerController extends BaseController {
 
 	public function catalogue()
 	{
-		return View::make('customer.catalogue');
+		$gifts = GiftManager::getAllActiveGifts();
+		$companies = UserManager::getAllCompanies();
+
+		return View::make('customer.catalogue', array('gifts' => json_encode($gifts->toArray()),
+				'companies' =>  json_encode($companies->toArray()))
+			);
 	}
 
 	public function account()

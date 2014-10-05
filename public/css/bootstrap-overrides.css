@@ -105,6 +105,15 @@
 	border-radius: 25px;
 }
 
+.number-of-gifts{
+	color: #51AFFF;
+	font-weight: bold;
+	padding: 5px;
+	border: 2px solid #51AFFF;
+	border-radius: 25px;
+	margin-left:10px;	
+}
+
 .margin-bottom{
 	margin-bottom: 10px;
 }

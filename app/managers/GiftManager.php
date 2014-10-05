@@ -29,4 +29,10 @@ class GiftManager {
 		return Gift::where('company_id', Auth::id())->with('company')->orderBy('created_at', 'desc')->get();	
 	}
 
+	public static function getAllActiveGifts()
+	{
+		return Gift::where('active', 1)->with('company')->orderBy('created_at', 'desc')->get();	
+	}
+
+
 }
