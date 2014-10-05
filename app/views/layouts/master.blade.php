@@ -51,7 +51,7 @@
               </div>
               <div class="inner">
                 <ul id="sub-navigation" class="nav nav-tabs nav-justified" role="tablist">
-                  <li class="{{HtmlHelper::setActive(Routes::CUSTOMER_HOME)}}"><a href="{{URL::route(Routes::CUSTOMER_HOME)}}">Vasi kodovi (17)</a></li>
+                  <li class="{{HtmlHelper::setActive(Routes::CUSTOMER_HOME)}}"><a href="{{URL::route(Routes::CUSTOMER_HOME)}}">Vasi kodovi</a></li>
                   <li class="{{HtmlHelper::setActive(Routes::CUSTOMER_CATALOGUE)}}"><a href="{{URL::route(Routes::CUSTOMER_CATALOGUE)}}">Katalog</a></li>
                   <li class="{{HtmlHelper::setActive(Routes::CUSTOMER_ACCOUNT)}}"><a href="{{URL::route(Routes::CUSTOMER_ACCOUNT)}}">Moj nalog</a></li>
                 </ul>

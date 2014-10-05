@@ -382,4 +382,18 @@ class UserManager {
 		return FALSE;
 	}
 
+	public static function getAllCompanies()
+	{
+		Log::debug('Executing QRManager@getAllCompanies');
+
+		$companies = User::whereHas('roles', function($q)
+			{
+				$q->where('name', Roles::COMPANY);	
+			})->get();
+
+		Log::debug('Executing QRManager@getAllCompanies ~> result count ~>',  array('companies' => count($companies)));
+		
+		return $companies;		
+	} 
+
 }

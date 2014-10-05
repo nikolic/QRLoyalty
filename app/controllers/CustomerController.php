@@ -6,7 +6,12 @@ class CustomerController extends BaseController {
 
 	public function index()
 	{
-		return View::make('customer.index');
+		$codes = QRManager::getAllLoyaltyCodesForUser();
+		$companies = UserManager::getAllCompanies();
+
+		return View::make('customer.index', array('codes' => json_encode($codes->toArray()),
+				'companies' =>  json_encode($companies->toArray())
+			));
 	}
 
 	public function catalogue()
