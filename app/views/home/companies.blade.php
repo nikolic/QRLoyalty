@@ -21,12 +21,12 @@
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-12">
-					      <input type="password" class="form-control" placeholder="Unesi sifru" data-bind="value: password">
+					      <input type="password" class="form-control" id="passwordField" placeholder="Unesi sifru" data-bind="value: password">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-12">
-					      <input type="password" class="form-control" id="passwordField" placeholder="Ponovi sifru" data-bind="value: passwordConfirmation">
+					      <input type="password" class="form-control" placeholder="Ponovi sifru" data-bind="value: passwordConfirmation">
 					    </div>
 					  </div>
 					  <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Please wait...</div>
