@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Redirect;
+
 class CustomerController extends BaseController {
 
 	protected $layout = 'layouts.master';
@@ -26,7 +31,14 @@ class CustomerController extends BaseController {
 
 	public function account()
 	{
-		return View::make('customer.account');
+		$user = UserManager::getUserBasic(Auth::id());
+		return View::make('customer.account', array('user' => $user));
+	}
+
+	public function changePassword()
+	{
+		$success = UserManager::updatePassword(Auth::id());
+		return Response::json(array('success' => $success));
 	}
 }
 

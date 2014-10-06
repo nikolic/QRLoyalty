@@ -45,5 +45,5 @@ Route::post('/company/gift/create', array('as' => Routes::GIFT_CREATE, 'uses' =>
 Route::get('/customer/home', array('as' => Routes::CUSTOMER_HOME, 'uses' => 'CustomerController@index'));
 Route::get('/customer/catalogue', array('as' => Routes::CUSTOMER_CATALOGUE, 'uses' => 'CustomerController@catalogue'));
 Route::get('/customer/account', array('as' => Routes::CUSTOMER_ACCOUNT, 'uses' => 'CustomerController@account'));
-
+Route::post('/customer/account/change-password', array('as' => Routes::CUSTOMER_ACCOUNT_CHANGE_PASSWORD, 'uses' => 'CustomerController@changePassword'));
 

@@ -10,7 +10,6 @@
                        optionsText: 'company_name',
                        value: selectedCompany,
                        optionsCaption: 'Select company', event { change: $root.filterByCompany }">
-
 				</select>	
 	      	</div>
 	      	<div class="col-md-1 number-of-codes" data-bind="text: countLoyaltyCodes()"></div>

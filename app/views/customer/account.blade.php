@@ -4,14 +4,14 @@
 	<div class="col-md-12">
 		<div class="panel panel-custom">
 	      <div class="panel-heading">
-	        <h3 class="panel-title">Marko Nikolic (nikolic89@hotmail.com)</h3>
+	        <h3 class="panel-title">{{$user->full_name}} ({{$user->email}})</h3>
 	      </div>
 			<div class="panel-body">
 			    <div class="list-group" id="codes">
 			        <div class="list-group-item">
-			            <p class="list-group-item-text">Your Name: Marko Nikolic</p>
-			            <p class="list-group-item-text">Email: nikolic89@hotmail.com</p>
-			            <p class="list-group-item-text">Created: 20.12.2014</p>
+			            <p class="list-group-item-text">Your Name: {{$user->full_name}}</p>
+			            <p class="list-group-item-text">Email: {{$user->email}}</p>
+			            <p class="list-group-item-text">Created: {{$user->created_at}}</p>
 			            <p class="list-group-item-text">Status: <span class="label label-success">Activan</span></p>
 			        </div>
 			        <div class="list-group-item">
@@ -21,20 +21,23 @@
 			            <p class="list-group-item-text">
 			            	<div class="row">
 				            	<div class="col-md-6">
-				            		<input type="password" class="form-control" placeholder="New password" required="">
+				            		<input type="password" id="passwordField" class="form-control" placeholder="New password" data-bind="value: password">
 				            	</div>
 				            	<div class="col-md-6">
-				            		<input type="password" class="form-control" placeholder="New password confirmation" required="">
+				            		<input type="password" class="form-control" placeholder="New password confirmation" data-bind="value: passwordConfirmation">
 				            	</div>
 			            	</div>
 			            </p>
-			            <h4 class="list-group-item-text"><span class="label label-info">Change password</span></h4>
+			            <button type="button" class="btn btn-sm btn-info" data-bind="click: updatePassword, enable: canUpdate">Change password</button>
+<!-- 			            <h4 class="list-group-item-text"><span class="label label-info" data-bind="click: updatePassword, enable: canUpdate">Change password</span></h4> -->
 			        </div>
 			        <div class="list-group-item">
-			            <h4 class="list-group-item-heading"><span class="label label-default">Deactivate account</span></h4>
+			            <button type="button" class="btn btn-sm btn-danger">Deaktivaj nalog</button>
 			        </div>
 			    </div>
 			</div>
 		</div>
 	</div>
+	<script> var SERVER_PATH_CHANGE_PASSWORD = "{{URL::route(Routes::CUSTOMER_ACCOUNT_CHANGE_PASSWORD)}}"; </script>
+	{{ HTML::script('js/pages/customer/account.js') }}
 @stop
