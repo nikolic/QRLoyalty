@@ -28,8 +28,8 @@
 				            	</div>
 			            	</div>
 			            </p>
-			            <button type="button" class="btn btn-sm btn-info" data-bind="click: updatePassword, enable: canUpdate">Change password</button>
-<!-- 			            <h4 class="list-group-item-text"><span class="label label-info" data-bind="click: updatePassword, enable: canUpdate">Change password</span></h4> -->
+			            <button type="button" class="btn btn-sm btn-info" data-bind="click: updatePassword, enable: canUpdate, visible: ajaxInProgress() == false">Change password</button>
+				        <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Please wait...</div>
 			        </div>
 			        <div class="list-group-item">
 			            <button type="button" class="btn btn-sm btn-danger">Deaktivaj nalog</button>
