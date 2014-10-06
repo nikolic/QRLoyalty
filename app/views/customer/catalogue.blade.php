@@ -23,13 +23,14 @@
 			           </div>
 			            <h4 class="list-group-item-heading" data-bind="text: name"></h4>
 			            <p class="list-group-item-text">Cena: <b data-bind="text: price + ' (' + company.company_name + ' QRL kodova)'"></b></p>
-			            <p class="list-group-item-text"><span class="label label-success">Mozete preuzeti poklon</span></p>
+			            <p class="list-group-item-text" data-bind="if: $root.hasEnoughCodes(company_id, price)"><span class="label label-success">Mozete preuzeti poklon</span></p>
+			            <p class="list-group-item-text" data-bind="ifnot: $root.hasEnoughCodes(company_id, price)"><span class="label label-default">Nemate dovoljno</span></p>
 			        </div>
 			    </div>
 			</div>
 		</div>
 	</div>
-
+	<script> var SERVER_VALUE_LOYALTY_CODES_JSON = $.parseJSON('{{$codes}}'); </script>
 	<script> var SERVER_VALUE_GIFTS_JSON = $.parseJSON('{{$gifts}}'); </script>
 	<script> var SERVER_VALUE_COMPANIES_JSON = $.parseJSON('{{$companies}}'); </script>
 	{{ HTML::script('js/pages/customer/customerGifts.js') }}

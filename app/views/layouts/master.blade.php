@@ -15,6 +15,7 @@
     {{ HTML::script('js/libs/jquery.min.js') }}
     {{ HTML::script('js/libs/bootstrap.min.js') }}
     {{ HTML::script('js/libs/jquery.mCustomScrollbar.concat.min.js') }}
+    {{ HTML::script('js/libs/underscore.js') }}
     {{ HTML::script('js/libs/knockout-3.1.0.js') }}
     {{ HTML::script('js/libs/knockout.mapping-latest.js') }}
     {{ HTML::script('js/libs/knockout.validation.js') }}

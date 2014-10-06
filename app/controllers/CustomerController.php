@@ -21,12 +21,13 @@ class CustomerController extends BaseController {
 
 	public function catalogue()
 	{
+		$codes = QRManager::getAllLoyaltyCodesForUser();
 		$gifts = GiftManager::getAllActiveGifts();
 		$companies = UserManager::getAllCompanies();
 
 		return View::make('customer.catalogue', array('gifts' => json_encode($gifts->toArray()),
-				'companies' =>  json_encode($companies->toArray()))
-			);
+													  'companies' =>  json_encode($companies->toArray()),
+													  'codes' => json_encode($codes->toArray())));
 	}
 
 	public function account()
