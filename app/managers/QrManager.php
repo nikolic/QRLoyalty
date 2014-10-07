@@ -90,16 +90,29 @@ class QRManager {
 		return FALSE;
 	}
 
-	public static function getAllLoyaltyCodesForCompany(){
+	public static function getAllLoyaltyCodesForCompany()
+	{
 		$loyaltyCodes = LoyaltyCode::where('company_id', Auth::id())->with('user')->get();
 
 		return $loyaltyCodes;
 	}
 
-	public static function getAllLoyaltyCodesForUser(){
+	public static function getAllLoyaltyCodesForUser()
+	{
 		$loyaltyCodes = LoyaltyCode::where('user_id', Auth::id())->with('company')->get();
 
 		return $loyaltyCodes;
+	}
+
+	public static function validateCode($company_id, $secret)
+	{
+		$loyaltyCode = LoyaltyCode::where(array('company_id' => $company_id,
+												'secret' => $secret,
+												'used' => 0,
+												'active' => 1,
+												'deleted' => 0 ))->first();
+
+		return $loyaltyCode;
 	}
 
 	public static function _generatePath($codeId){

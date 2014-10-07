@@ -12,7 +12,7 @@ class GiftController extends BaseController {
 	public function create()
 	{
 		$gift = GiftManager::insertGift();
-		$gifts = GiftManager::getAllCompanyGifts();
+		$gifts = GiftManager::getAllCompanyGifts(Auth::id());
 		$success = $gift != NULL && $gift->id > 0;
 
 		return Response::json(array('success' => $success, 'gifts' => $gifts));

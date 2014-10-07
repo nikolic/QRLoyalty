@@ -33,5 +33,11 @@ abstract class Routes extends BasicEnum {
 	 * Gift routes
 	*/
 	const GIFT_CREATE = 'GIFT_CREATE';	
+	/*
+	 * API routes 
+	*/
+	const API_COMPANY_LOGIN = 'API_COMPANY_LOGIN';
+	const API_COMPANY_GIFTS = 'API_COMPANY_GIFTS';
+	const API_COMPANY_VALIDATE_CODE = 'API_COMPANY_VALIDATE_CODE';
 
 }

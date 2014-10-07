@@ -24,9 +24,9 @@ class GiftManager {
 		return ($gift != null && $gift->id > 0) ? $gift : NULL;
 	}
 
-	public static function getAllCompanyGifts()
+	public static function getAllCompanyGifts($company_id)
 	{
-		return Gift::where('company_id', Auth::id())->with('company')->orderBy('created_at', 'desc')->get();	
+		return Gift::where('company_id', $company_id)->with('company')->orderBy('created_at', 'desc')->get();	
 	}
 
 	public static function getAllActiveGifts()

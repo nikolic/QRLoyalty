@@ -113,3 +113,15 @@ Route::filter('customer', function()
 		return Redirect::guest('login');
 	}
 });
+
+Route::filter('api.auth', function()
+{
+	if (!Input::has('company_id'))
+	{
+		App::abort(403, 'Unauthorized action.');
+	}
+	if(!UserManager::isCompany(Input::get('company_id')))
+	{
+		App::abort(403, 'Unauthorized action.');
+	}
+});
