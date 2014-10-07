@@ -20,15 +20,18 @@ class ApiController extends BaseController {
 		$password = Input::get('password');
 		
 		$isValid = FALSE;
+		$gifts = NULL;
 		if(Auth::attempt(array('email' => $email, 'password' => $password, 'active' => 1)))
 		{	
 			if(UserManager::isCompany(Auth::id()))
 			{
 				$isValid = TRUE;
+				$gifts = GiftManager::getAllCompanyGifts(Auth::id());
 			}
 		}
 
-		return Response::json(array('success' => $isValid, 'authenticated' => $isValid, 'company_id' => Auth::id()));
+		return Response::json(array('success' => $isValid, 'authenticated' => $isValid,
+		 'company_id' => Auth::id(), 'gifts' => $gifts));
 	}
 
 	public function gifts()
