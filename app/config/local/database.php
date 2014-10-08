@@ -20,16 +20,28 @@ return array(
 
 	'connections' => array(
 
+		// 'mysql' => array(
+		// 	'driver'    => 'mysql',
+		// 	'host'      => 'localhost',
+		// 	'database'  => 'qrl',
+		// 	'username'  => 'root',
+		// 	'password'  => 'qwe123',
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => '',
+		// ),
+
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'qrl',
-			'username'  => 'root',
-			'password'  => 'qwe123',
+			'username'  => 'sourcecode',
+			'password'  => 'sourcecode',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
