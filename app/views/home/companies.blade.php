@@ -29,8 +29,8 @@
 					      <input type="password" class="form-control" placeholder="Ponovi sifru" data-bind="value: passwordConfirmation">
 					    </div>
 					  </div>
-					  <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Please wait...</div>
-					  <button type="submit" class="btn btn-lg btn-primary btn-block" data-bind="click: save, visible: ajaxInProgress() == false, enable: canSave">Create User</button>
+					  <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Učitavanje u toku...</div>
+					  <button type="submit" class="btn btn-lg btn-primary btn-block" data-bind="click: save, visible: ajaxInProgress() == false, enable: canSave">Kreiraj nalog</button>
 					</form>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 		        <h3 class="panel-title">Info</h3>
 		      </div>
 				<div class="panel-body">
-					It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+					Bitno je takođe pomenuti da se kroz loyalty program lako mogu promovisati novi proizvodi, a verovatno da nema boljeg i strožijeg sudije od lojalnih potrošača koji vas poznaju u dušu i znaju šta da očekuju od vas. Da li vam trebaju fokus grupe i nasumično izabrani ljudi, mislim da ne uvek. Vaši postojeći kljenti su vam najstrožije sudije, jer oni ljudi koji najviše koriste vaše proizvode imaju najviše prava da vam o vašem proizvodu ponešto i kažu. Potrošač je nemilosrdan, a jednostavno u ljudskoj prirodi je da svaki čovek voli da bude upitan za mišljenje. 
 				</div>
 			</div>
 	    </div>

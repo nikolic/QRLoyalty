@@ -29,8 +29,8 @@
 					      <input type="password" class="form-control" placeholder="Ponovi sifru" data-bind="value: passwordConfirmation">
 					    </div>
 					  </div>
-				      <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Please wait...</div>
-					  <button type="submit" class="btn btn-lg btn-primary btn-block" data-bind="click: save, visible: ajaxInProgress() == false, enable: canSave">Create User</button>
+				      <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Učitavanje u toku...</div>
+					  <button type="submit" class="btn btn-lg btn-primary btn-block" data-bind="click: save, visible: ajaxInProgress() == false, enable: canSave">Kreiraj nalog</button>
 					</form>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 		        <h3 class="panel-title">Info</h3>
 		      </div>
 				<div class="panel-body">
-					It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+					Programi lojalnosti prošli su dug put od papirića na koje su se udarali pečati nakon svake kupovine, preko discount kartica koje su služile za ostvarivanje unapred određenih popusta, da bi se danas zahvaljujući razvoju tehnologije došlo do znatno naprednijih rešenja koja nude mnogo više kako kompaniji koja program organizuje tako i njihovim potrošačima.
 				</div>
 			</div>
 	    </div>

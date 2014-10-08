@@ -16,7 +16,7 @@
 		      	</div>
 	      	</div>
 	      	<div class="row" data-bind="visible: ajaxInProgress">
-	      		<div class="loading-wrap">{{ HTML::image("images/gif-load.gif", "loading") }} Please wait...</div>
+	      		<div class="loading-wrap">{{ HTML::image("images/gif-load.gif", "loading") }} Učitavanje u toku...</div>
 	      	</div>
 	      </div>
 			<div class="panel-body qrl-scroller-panel">

@@ -29,9 +29,9 @@
       			<div class="inner">
       			  <h3 class="masthead-brand"><a href="{{URL::to('/')}}">QRLoyalty</a></h3>
       			  <ul class="nav masthead-nav">
-      			    <li class="{{HtmlHelper::setActive(Routes::LOGIN, 'active-link-homepage')}}"><a href="{{URL::route(Routes::LOGIN)}}">Sign in</a></li>
-      			    <li class="{{HtmlHelper::setActive(Routes::FOR_CUSTOMERS, 'active-link-homepage')}}"><a href="{{URL::route(Routes::FOR_CUSTOMERS)}}">For customers</a></li>
-      			    <li class="{{HtmlHelper::setActive(Routes::FOR_COMPANIES, 'active-link-homepage')}}"><a href="{{URL::route(Routes::FOR_COMPANIES)}}">For companies</a></li>
+      			    <li class="{{HtmlHelper::setActive(Routes::LOGIN, 'active-link-homepage')}}"><a href="{{URL::route(Routes::LOGIN)}}">Prijavi se</a></li>
+      			    <li class="{{HtmlHelper::setActive(Routes::FOR_CUSTOMERS, 'active-link-homepage')}}"><a href="{{URL::route(Routes::FOR_CUSTOMERS)}}">Za korisnike</a></li>
+      			    <li class="{{HtmlHelper::setActive(Routes::FOR_COMPANIES, 'active-link-homepage')}}"><a href="{{URL::route(Routes::FOR_COMPANIES)}}">Za kompanije</a></li>
       			  </ul>
       			</div>
       		</div>

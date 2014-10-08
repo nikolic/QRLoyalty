@@ -9,7 +9,7 @@
 					<select class="form-control" data-bind="options: companies,
 	                       optionsText: 'company_name',
 	                       value: selectedCompany,
-	                       optionsCaption: 'Select company', event { change: $root.filterByCompany }">
+	                       optionsCaption: 'Izaberi kompaniju', event { change: $root.filterByCompany }">
 					</select>	
 				</div>
 				<div class="col-md-1 number-of-gifts" data-bind="text: gifts().length"></div>

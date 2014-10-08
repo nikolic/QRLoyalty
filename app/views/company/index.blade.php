@@ -8,11 +8,11 @@
 	      </div>
 			<div class="panel-body">
 				<form class="form-signin" role="form">
-			    <input type="email" class="form-control" placeholder="Email address" required="" autofocus="" data-bind="value: email">
+			    <input type="email" class="form-control" placeholder="Email adresa" required="" autofocus="" data-bind="value: email">
 			    <br/>
 			    <input type="text" class="form-control" placeholder="Ime korisnika (Opciono)" data-bind="value: fullName">
 			    <br/>
-			    <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Please wait...</div>
+			    <div class="loading-wrap" data-bind="visible: ajaxInProgress">{{ HTML::image("images/gif-load.gif", "loading") }} Učitavanje u toku...</div>
 			    <button class="btn btn-lg btn-primary btn-block" type="submit" data-bind="click: sendCode, enable: canSend, visible: ajaxInProgress() == false">Pošalji</button>
 			  </form>
 			</div>

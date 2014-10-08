@@ -9,7 +9,7 @@
 				<select class="form-control" data-bind="options: companies,
                        optionsText: 'company_name',
                        value: selectedCompany,
-                       optionsCaption: 'Select company', event { change: $root.filterByCompany }">
+                       optionsCaption: 'Izaberi kompaniju', event { change: $root.filterByCompany }">
 				</select>	
 	      	</div>
 	      	<div class="col-md-1 number-of-codes" data-bind="text: countLoyaltyCodes()"></div>
@@ -27,8 +27,8 @@
 			        	<div class="list-group-item-image">
 			        		<img class="img-thumbnail" alt="140x140" style="width: 64px; height: 64px;"  data-bind="attr: { src: $root.generatePath(id) }">
 			           </div>
-			            <h4 class="list-group-item-heading">Company: <b data-bind="text: company.company_name"></b></h4>
-			            <p class="list-group-item-text">Created: <i data-bind="text: created_at"></i></p>
+			            <h4 class="list-group-item-heading">Kompanija: <b data-bind="text: company.company_name"></b></h4>
+			            <p class="list-group-item-text">Kreiran: <i data-bind="text: created_at"></i></p>
 			            <p class="list-group-item-text" data-bind="if: (used == 0)"> Status: <span class="label label-success">Aktivan</span></p>
 			            <p class="list-group-item-text" data-bind="if: (used == 1)"> Status: <span class="label label-danger">Iskorišćen</span></p>
 			        </div>
