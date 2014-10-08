@@ -30,7 +30,7 @@ class QRManager {
 
 		$fileLocation = QRManager::_generatePath($loyaltyCode->id);
 
-		QrCode::format('png')->size(150)->color(81,175,255)->backgroundColor(51,51,51)->generate($loyaltyCode->secret, $fileLocation);
+		QrCode::format('png')->size(250)->color(81,175,255)->generate($loyaltyCode->secret, $fileLocation);
 
 		QRManager::sendEmailNotificationWithLoyaltyCode($user, $loyaltyCode);
 
