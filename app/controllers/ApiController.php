@@ -14,7 +14,7 @@ class ApiController extends BaseController {
 	 */
 	public function authenticate()
 	{
-		Log::debug('Executing LoginController@login', array('context' => Input::get('email')));
+		Log::debug('Executing api@authenticate', array('context' => Input::get('email')));
 		
 		$email = Input::get('email');
 		$password = Input::get('password');
@@ -53,6 +53,16 @@ class ApiController extends BaseController {
 									'exist' => $codeExist,
 									'url' => $codeExist ? URL::to('/codes/' . $loyaltyCode->id . '.png') : NULL
 			));
+	}
+
+	public function updateCodes()
+	{
+		$ids = array_values(Input::except('company_id')); 
+		Log::debug('Executing updateCodes', $ids); 
+		//TODO validation...
+		QRManager::setUsedStatusToAll($ids);
+
+		return Response::json(array('success' => TRUE, 'ids' => $ids));
 	}
 
 }

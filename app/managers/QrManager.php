@@ -115,9 +115,27 @@ class QRManager {
 		return $loyaltyCode;
 	}
 
-	public static function _generatePath($codeId){
+	public static function _generatePath($codeId)
+	{
 		$basePath = Config::get('qrloyalty.codes_path');
 
 		return $basePath . $codeId . '.png';
+	}
+
+	public static function setUsedStatus($id)
+	{
+		$code = LoyaltyCode::find($id);
+		$code->used = 1;
+		$success = $code->save();
+
+		return $success;
+	}
+
+	public static function setUsedStatusToAll($ids)
+	{
+		foreach ($ids as $id)
+		{
+			QRManager::setUsedStatus($id);
+		}
 	}
 }

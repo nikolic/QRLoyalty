@@ -55,4 +55,4 @@ Route::post('/customer/account/change-password', array('as' => Routes::CUSTOMER_
 Route::post('/api/authenticate', array('as' => Routes::API_COMPANY_LOGIN, 'uses' => 'ApiController@authenticate'));
 Route::post('/api/gifts', array('as' => Routes::API_COMPANY_GIFTS, 'uses' => 'ApiController@gifts', 'before' => 'api.auth'));
 Route::post('/api/validate', array('as' => Routes::API_COMPANY_VALIDATE_CODE, 'uses' => 'ApiController@validateCode', 'before' => 'api.auth'));
-
+Route::post('/api/update-codes', array('as' => Routes::API_COMPANY_UPDATE_CODES, 'uses' => 'ApiController@updateCodes', 'before' => 'api.auth'));
